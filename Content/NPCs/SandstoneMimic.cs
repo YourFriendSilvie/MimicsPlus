@@ -14,7 +14,7 @@ namespace MimicsPlus.Content.NPCs.SandstoneMimic
             npc.aiStyle = NPCAiStyle.Mimic;
             npc.damage = 30;
             npc.lifeMax = 300;
-                    
+            npc.defense = 12;
         }
     }
 }
