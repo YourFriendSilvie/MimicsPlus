@@ -1,0 +1,3 @@
+displayName = Mimics+
+author = TigerCheese
+version = 0.1
