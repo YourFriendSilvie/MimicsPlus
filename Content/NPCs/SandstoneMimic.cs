@@ -4,6 +4,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using Microsoft.Xna.Framework;
 
 namespace MimicsPlus.Content.NPCs
 {
@@ -11,9 +12,7 @@ namespace MimicsPlus.Content.NPCs
     {
         public override void SetStaticDefaults()
         {
-            Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.Mimic];
-
-
+            Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.IceMimic];
         }
         public override void SetDefaults()
         {
@@ -53,6 +52,19 @@ namespace MimicsPlus.Content.NPCs
                 ItemDropRule.Common(ItemID.DesertMinecart, 15, 1, 1), ItemDropRule.Common(ItemID.UncumberingStone, 7, 1, 1)
             ];
             npcLoot.Add(new OneFromRulesRule(1, secondaryDrops));
+        }
+        public override void HitEffect(NPC.HitInfo hit)
+        {
+            if (NPC.life <= 0)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    int type = Main.rand.Next(11, 13);
+                    Vector2 pos = NPC.position + new Vector2(Main.rand.Next(NPC.width - 8), Main.rand.Next(NPC.height / 2));
+                    Vector2 vel = NPC.velocity + new Vector2(Main.rand.Next(3,5));
+					Gore.NewGore(NPC.GetSource_Death(), pos, vel, type);
+                }
+            }
         }
     }
 }
