@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
-namespace MimicsPlus.Content.NPCs.SandstoneMimic
+namespace MimicsPlus.Content.NPCs
 {
     public class SandstoneMimic : ModNPC
     {
