@@ -1,0 +1,12 @@
+https://docs.google.com/spreadsheets/d/1y5_y1ptnlcPhcxh6jCOsMApX1W6FI3l8duHtEaLqkro/edit?pli=1
+
+https://github.com/tModLoader/tModLoader/wiki/NPC-Class-Documentation
+
+https://github.com/tModLoader/tModLoader/blob/1.4.4/ExampleMod/Content/NPCs/PartyZombie.cs
+
+
+
+Minion things
+https://github.com/tModLoader/tModLoader/blob/1.4.4/ExampleMod/Content/Projectiles/Minions/ExampleSimpleMinion.cs
+https://github.com/tModLoader/tModLoader/wiki/Basic-Minion-Guide
+
