@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -12,13 +11,13 @@ namespace MimicsPlus.Content.NPCs
     {
         public override void SetStaticDefaults()
         {
-            Main.npcFrameCount[Type] = 6;
+            Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.IceMimic];
             
         }
         public override void SetDefaults()
         {
-            NPC.width = 24;
-            NPC.height = 24;
+            NPC.width = 16;
+            NPC.height = 22;
             NPC.damage = 80;
             NPC.defense = 30;
             NPC.lifeMax = 500;
@@ -30,29 +29,23 @@ namespace MimicsPlus.Content.NPCs
             NPC.value = 100000f;
 
             AIType = NPCID.Mimic;
-            AnimationType = NPCID.IceMimic;
+            AnimationType = NPCID.Mimic;
             
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-			if (spawnInfo.DesertCave)
-            {
-                return SpawnCondition.UndergroundMimic.Chance;
-            }
-            else
-            {
-                return 0;
-            }
+            return SpawnCondition.DesertCave.Chance * (1f /70f);
+            
 		}
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             IItemDropRule[] primaryDrops = [
-            ItemDropRule.Common(ItemID.MagicConch, 7, 1, 1),
-            ItemDropRule.Common(ItemID.MysticCoilSnake, 7, 1, 1),
-            ItemDropRule.Common(ItemID.SandBoots, 7, 1, 1),
-            ItemDropRule.Common(ItemID.AncientChisel, 7, 1, 1),
-            ItemDropRule.Common(ItemID.CatBast, 7, 1, 1) //Bast Statue
+            ItemDropRule.Common(ItemID.MagicConch, 1, 1, 1),
+            ItemDropRule.Common(ItemID.MysticCoilSnake, 1, 1, 1),
+            ItemDropRule.Common(ItemID.SandBoots, 1, 1, 1),
+            ItemDropRule.Common(ItemID.AncientChisel, 1, 1, 1),
+            ItemDropRule.Common(ItemID.CatBast, 1, 1, 1) //Bast Statue
             ]; 
             npcLoot.Add(new OneFromRulesRule(1, primaryDrops));
 
@@ -69,7 +62,7 @@ namespace MimicsPlus.Content.NPCs
                 {
                     int type = Main.rand.Next(11, 13);
                     Vector2 pos = NPC.position + new Vector2(Main.rand.Next(NPC.width - 8), Main.rand.Next(NPC.height / 2));
-                    Vector2 vel = NPC.velocity + new Vector2(Main.rand.Next(3,5));
+                    Vector2 vel = NPC.velocity + new Vector2(Main.rand.Next(1,3));
 					Gore.NewGore(NPC.GetSource_Death(), pos, vel, type);
                 }
             }
