@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace MimicsPlus.Content.Projectiles
 {
-    public class DesertScarab : ModProjectile
+    public class DesertScarabMinion : ModProjectile
     {
         
     }
