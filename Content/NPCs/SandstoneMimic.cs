@@ -12,7 +12,8 @@ namespace MimicsPlus.Content.NPCs
     {
         public override void SetStaticDefaults()
         {
-            Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.IceMimic];
+            Main.npcFrameCount[Type] = 6;
+            
         }
         public override void SetDefaults()
         {
@@ -22,19 +23,26 @@ namespace MimicsPlus.Content.NPCs
             NPC.defense = 30;
             NPC.lifeMax = 500;
             NPC.HitSound = SoundID.NPCHit4;
-            NPC.DeathSound = SoundID.NPCDeath6;
-            NPC.value = 100000f;
+            NPC.DeathSound = SoundID.NPCDeath6;       
             NPC.knockBackResist = 0.7f;
             NPC.aiStyle = 25;
             NPC.rarity = 4;
+            NPC.value = 100000f;
 
             AIType = NPCID.Mimic;
-            AnimationType = NPCID.Mimic;
+            AnimationType = NPCID.IceMimic;
             
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-			return SpawnCondition.DesertCave.Chance * SpawnCondition.UndergroundMimic.Chance;
+			if (spawnInfo.DesertCave)
+            {
+                return SpawnCondition.UndergroundMimic.Chance;
+            }
+            else
+            {
+                return 0;
+            }
 		}
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
